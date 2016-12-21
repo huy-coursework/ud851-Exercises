@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
-                // TODO (1) Retrieve the text from the EditText and store it in a variable
-
+                String textEntered = mNameEntry.getText().toString();
                 /*
                  * Storing the Context in a variable in this case is redundant since we could have
                  * just used "this" or "MainActivity.this" in the method call below. However, we
@@ -71,9 +70,8 @@ public class MainActivity extends AppCompatActivity {
                  * the destinationActivity variable. The constructor for an Intent also requires a
                  * context, which we stored in the variable named "context".
                  */
-                Intent startChildActivityIntent = new Intent(context, destinationActivity);
-
-                // TODO (2) Use the putExtra method to put the String from the EditText in the Intent
+                Intent startChildActivityIntent = new Intent(context, destinationActivity)
+                        .putExtra(Intent.EXTRA_TEXT, textEntered);
 
                 /*
                  * Once the Intent has been created, we can use Activity's method, "startActivity"
